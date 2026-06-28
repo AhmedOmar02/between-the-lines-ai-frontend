@@ -166,21 +166,13 @@ body {
   padding: 0 1.5rem 0;
 }
 
-/* ── Hero ── */
-.hero-section {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: var(--navbar-h);
-}
+
 
 /* ── Header ── */
 .header {
   width: 100%;
   max-width: 720px;
-  padding: 2rem 0 2.5rem;
+  padding: 12rem 0 2.5rem;
   text-align: center;
 }
 
