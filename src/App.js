@@ -95,8 +95,8 @@ export default function App() {
 
   return (
     <div className="app">
-      <div className="glow-orb" />
-
+      <div className="glow-orb" style={{ position: 'fixed' }} />
+      
       <header className="header">
         <p className="header-eyebrow">Communication clarity</p>
         <h1 className="header-title">
