@@ -80,9 +80,9 @@ function Footer() {
           <p className="footer-desc">Uncover the meanings hiding inside any sentence.</p>
         </div>
         <nav className="footer-links" aria-label="Footer navigation">
-          <a href="#" className="footer-link">GitHub</a>
-          <a href="#" className="footer-link">Privacy</a>
-          <a href="#" className="footer-link">Contact</a>
+          <a href="/" className="footer-link">GitHub</a>
+          <a href="/" className="footer-link">Privacy</a>
+          <a href="/" className="footer-link">Contact</a>
         </nav>
       </div>
       <p className="footer-copy">
