@@ -57,25 +57,9 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [result, setResult] = useState(null);
-  const [cooldownUntil, setCooldownUntil] = useState(0);
 
   async function handleAnalyze() {
     if (!sentence.trim()) return;
-
-    // NEW: Check character limit
-    if (sentence.length > 500) {
-      setError("Please use less than 500 characters");
-      return;
-    }
-
-    // Check if we're in cooldown period
-    const now = Date.now();
-    if (now < cooldownUntil) {
-      // Still in cooldown, show error and don't proceed
-      setError(`Please wait ${Math.ceil((cooldownUntil - now) / 1000)} seconds before making another request. This helps protect your token usage.`);
-      return;
-    }
-
     setLoading(true);
     setError(null);
     setResult(null);
@@ -100,8 +84,6 @@ export default function App() {
       setError(err.message);
     } finally {
       setLoading(false);
-      // Set cooldown for 3 seconds after each request (success or error)
-      setCooldownUntil(Date.now() + 3000);
     }
   }
 
@@ -187,11 +169,11 @@ export default function App() {
         </div>
 
         <button
-          className={`analyze-btn ${loading ? "loading" : ""} ${cooldownUntil > Date.now() ? "cooldown" : ""}`}
+          className={`analyze-btn ${loading ? "loading" : ""}`}
           onClick={handleAnalyze}
-          disabled={loading || !sentence.trim() || sentence.length > 500 || cooldownUntil > Date.now()}
+          disabled={loading || !sentence.trim()}
         >
-          {loading ? "Reading between the lines…" : cooldownUntil > Date.now() ? `Please wait ${Math.ceil((cooldownUntil - Date.now()) / 1000)}s…` : "Analyze  ⌘↵"}
+          {loading ? "Reading between the lines…" : "Analyze  ⌘↵"}
         </button>
 
         {error && <p className="error-msg">{error}</p>}
