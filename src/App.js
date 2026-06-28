@@ -53,7 +53,7 @@ function Navbar({ onTryNow }) {
           <a href="/" className="nav-link" onClick={() => setMenuOpen(false)}>Home</a>
           <a href="#how-it-works" className="nav-link" onClick={() => setMenuOpen(false)}>How it Works</a>
           <a href="#about" className="nav-link" onClick={() => setMenuOpen(false)}>About</a>
-          <a href="/" className="nav-link" onClick={() => setMenuOpen(false)}>GitHub</a>
+          <a href="https://github.com/AhmedOmar02" className="nav-link" onClick={() => setMenuOpen(false)}>GitHub</a>
           <button className="nav-cta" onClick={handleTryNow} type="button">Try Now</button>
         </div>
         <button
@@ -80,7 +80,7 @@ function Footer() {
           <p className="footer-desc">Uncover the meanings hiding inside any sentence.</p>
         </div>
         <nav className="footer-links" aria-label="Footer navigation">
-          <a href="/" className="footer-link">GitHub</a>
+          <a href="https://github.com/AhmedOmar02" className="footer-link">GitHub</a>
           <a href="/" className="footer-link">Privacy</a>
           <a href="/" className="footer-link">Contact</a>
         </nav>
