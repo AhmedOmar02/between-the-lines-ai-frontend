@@ -51,7 +51,6 @@ function Navbar({ onTryNow }) {
         </a>
         <div className={`navbar-links${menuOpen ? " open" : ""}`}>
           <a href="/" className="nav-link" onClick={() => setMenuOpen(false)}>Home</a>
-          <a href="#how-it-works" className="nav-link" onClick={() => setMenuOpen(false)}>How it Works</a>
           <a href="#about" className="nav-link" onClick={() => setMenuOpen(false)}>About</a>
           <a href="https://github.com/AhmedOmar02" className="nav-link" onClick={() => setMenuOpen(false)}>GitHub</a>
           <button className="nav-cta" onClick={handleTryNow} type="button">Try Now</button>
