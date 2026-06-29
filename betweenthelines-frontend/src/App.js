@@ -188,18 +188,23 @@ export default function App() {
     if (context.background.trim()) ctx.background = context.background.trim();
     if (Object.keys(ctx).length) body.context = ctx;
 
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 30000);
+
     try {
       const res = await fetch(`${API_BASE}/api/analyze`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
+        signal: controller.signal,
       });
       const data = await res.json();
       if (!data.success) throw new Error(data.error || "Analysis failed");
       setResult(data.data);
     } catch (err) {
-      setError(err.message);
+      setError(err.name === "AbortError" ? "Request timed out. Please try again." : err.message);
     } finally {
+      clearTimeout(timeout);
       setLoading(false);
     }
   }
